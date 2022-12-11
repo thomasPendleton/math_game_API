@@ -1,0 +1,21 @@
+{
+  "name": "math_game_api",
+  "version": "1.0.0",
+  "description": "math game api",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "tom",
+  "license": "ISC",
+ 
+
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.20"
+
+  }
+}
