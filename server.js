@@ -15,6 +15,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res)=>{
+  console.log('app server')
   res.send('app is up')
 })
 
@@ -26,6 +27,7 @@ app.get("/getscores", (req, res) => {
     .then((entries) => {
       res.json(entries)
     })
+    .catch(err => res.status(400).json('failed to add score'))
 })
 
 app.post("/score", (req, res) => {
