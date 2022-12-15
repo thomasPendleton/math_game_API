@@ -14,7 +14,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(cors())
 
-app.get("/", (req, res) => {
+app.get('/', (req, res)=>{
+  res.send('app is up')
+})
+
+app.get("/getscores", (req, res) => {
   knex("highscores")
     .orderBy('score', 'desc')
     .where('score', '>', 10)
