@@ -4,10 +4,16 @@ const app = express()
 
 const knex = require("knex")({
   client: "pg",
-  connectionString : process.env.HEROKU_POSTGRESQL_GRAY_URL,
-      ssl: {
-        rejectUnauthorized: false
-      }
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+  // connectionString : process.env.DATABASE_URL,
+  //     ssl: {
+  //       rejectUnauthorized: false
+  //     }
 })
 
 app.use(express.urlencoded({ extended: false }))
