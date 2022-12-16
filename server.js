@@ -4,7 +4,7 @@ const app = express()
 
 const knex = require("knex")({
   client: "pg",
-  connectionString : process.env.DATABASE_URL,
+  connectionString : process.env.HEROKU_POSTGRESQL_GRAY_URL,
       ssl: {
         rejectUnauthorized: false
       }
@@ -27,12 +27,12 @@ app.get("/getscores", (req, res) => {
     .then((entries) => {
       res.json(entries)
     })
-    .catch(err => res.status(400).json('failed to add score'))
+    .catch(err => res.status(400).json('failed to get scores'))
 })
 
 app.post("/score", (req, res) => {
   const { playerName, gameTime, correct, wrong, operation, level } = req.body
-
+  console.log(playerName, gameTime, correct);
   knex("highscores")
     .insert({
       name: playerName,
