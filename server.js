@@ -57,7 +57,7 @@ app.post("/score", (req, res) => {
 
 app.delete("/deleteScores", (req, res) => {
   console.log(req.body)
-  res.send("deleting")
+  res.status(200).json("deleting")
 
 })
 
