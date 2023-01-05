@@ -58,7 +58,18 @@ app.post("/score", (req, res) => {
 app.delete("/deleteScores", (req, res) => {
   const { removeScores } = req.body
   console.log(req.body)
-  res.status(200).json(removeScores)
+  knex('highscores')
+  .where('id', removeScores)
+  .del()
+  .returning("*")
+  .then((entries) => {
+    res.status(200).json(entries)
+  })
+  .catch((err) => {
+    console.log(err)
+      res.status(400).json("unable to delete score")
+  } )
+  // res.status(200).json(removeScores)
 
 })
 
