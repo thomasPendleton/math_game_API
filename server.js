@@ -56,8 +56,9 @@ app.post("/score", (req, res) => {
 })
 
 app.delete("/deleteScores", (req, res) => {
+  const { removeScores } = req.body
   console.log(req.body)
-  res.status(200).json(req.body)
+  res.status(200).json(removeScores)
 
 })
 
