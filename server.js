@@ -57,6 +57,8 @@ app.post("/score", (req, res) => {
 
 app.delete("/deleteScores", (req, res) => {
   console.log(req.body)
+  res.send("deleting")
+
 })
 
 app.listen(process.env.PORT || 3005, () => {
