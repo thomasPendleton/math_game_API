@@ -59,7 +59,7 @@ app.delete("/deleteScores", (req, res) => {
   const { removeScores } = req.body
   console.log(req.body)
   knex('highscores')
-  .where('id', removeScores)
+  .where('id', ...removeScores)
   .del()
   .returning("*")
   .then((entries) => {
